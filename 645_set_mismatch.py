@@ -1,0 +1,14 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        freq = [0]*(len(nums)+1)
+        for num in nums:
+            freq[num] += 1
+        duplicate = 0
+        missing = 0
+
+        for i in range(1,len(nums)+1):
+            if freq[i] == 2:
+                duplicate = i
+            if freq[i] == 0:
+                missing = i
+        return(duplicate,missing)
